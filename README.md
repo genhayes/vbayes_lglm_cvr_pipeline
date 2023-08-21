@@ -1,5 +1,5 @@
 # vbayes_lglm_cvr_pipeline
-This repository includes all the scripts required to recreate the Variational Bayesian and lagged-General Linear Model CVR, hemodynamic delay, and statistics results presented in (Hayes et al, 2023) using Quantiphyse and accompanying software. The pipeline has been made as accessible as possible for you to adapt it to run you own Variational Bayesian and/or lagged-General Linear Model CVR analysis on your own data.
+This repository includes all the scripts required to recreate the Variational Bayesian and lagged-General Linear Model CVR, hemodynamic delay, and statistics results using Quantiphyse and accompanying software. The pipeline has been made as accessible as possible for you to adapt it to run you own Variational Bayesian and/or lagged-General Linear Model CVR analysis on your own data or using S. Moia's publically available breath-hold data.
 
 ### To clone vbayes_lglm_cvr_pipeline:
 ```
@@ -34,4 +34,4 @@ To run the pipeline, you will need to install the following:
 - [AFNI_23.0.07](https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/index.html) (optional) 
   - [Advanced Normalization Tool (ANTs)](https://andysbrainbook.readthedocs.io/en/latest/ANTs/ANTs_Overview.html) (optional; for mapping to MNI space for statistics only)
  
-Note that some software updates may change output 
+Note that these scripts may not run if using different versions of the software.

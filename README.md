@@ -24,9 +24,6 @@ This pipeline was created and used on the EuskalIBUR dataset. This dataset inclu
 
 This pipeline was built for data organised in [BIDS format](https://bids.neuroimaging.io/), however it can be adapted to other folder structures if needed by changing the filepaths and folder loops.
 
-# Preprocessing
-To preprocess the anatomical MRI, BOLD MRI, PETCO2 traces, please see [S. Moia's EuskalIBUR](https://github.com/smoia/EuskalIBUR_dataproc/tree/master) GitHub repository.
-
 # Quantiphyse and helpful software installation
 To run the pipeline, you will need to install the following:
 - [Quantiphyse](https://quantiphyse.readthedocs.io/en/latest/basics/install.html)
@@ -40,3 +37,6 @@ To run the pipeline, you will need to install the following:
   - [Advanced Normalization Tool (ANTs)](https://andysbrainbook.readthedocs.io/en/latest/ANTs/ANTs_Overview.html) (optional; for mapping to MNI space for statistics only)
  
 Note that these scripts may not run if using different versions of the software.
+
+# Preprocessing
+To preprocess the anatomical MRI, BOLD MRI, PETCO2 traces, please see [S. Moia's EuskalIBUR](https://github.com/smoia/EuskalIBUR_dataproc/tree/master) GitHub repository.

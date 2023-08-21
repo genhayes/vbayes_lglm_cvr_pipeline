@@ -1,7 +1,7 @@
 # vbayes_lglm_cvr_pipeline
-This repository includes all the scripts required to recreate the Variational Bayesian and lagged-General Linear Model CVR, hemodynamic delay, and statistics results using Quantiphyse and accompanying software. The pipeline has been made as accessible as possible for you to adapt it to run you own Variational Bayesian and/or lagged-General Linear Model CVR analysis on your own data or using S. Moia's publically available breath-hold data.
+This repository includes all the scripts required to recreate the Variational Bayesian and lagged-General Linear Model CVR, hemodynamic delay, and statistics results using Quantiphyse and accompanying software. The pipeline has been made as accessible as possible for you to adapt it to run your own Variational Bayesian and/or lagged-General Linear Model CVR analysis on your own data or using S. Moia's publically available breath-hold data.
 
-### To clone vbayes_lglm_cvr_pipeline:
+### To clone `vbayes_lglm_cvr_pipeline`:
 ```
 git clone https://github.com/genhayes/vbayes_lglm_cvr_pipeline
 ```
@@ -15,7 +15,7 @@ git clone https://github.com/genhayes/vbayes_lglm_cvr_pipeline
 - ```03.statistics```
   - Contains the scripts for converting the output maps to MNI space and for running the LMEr [Chen et al., 2013](https://www.sciencedirect.com/science/article/pii/S1053811913000943) and ICC(2,1) [(Chen et al., 2018)](https://onlinelibrary.wiley.com/doi/full/10.1002/hbm.23909) statistical analyses.
 - ```04.cvr_visualisation```
-  - Scripts to render, crop, and combine singleslice and multislice images, scatter plots, and histograms of the analysis outputs. Feel free to treat these as inspriation for creating your own figures.
+  - Scripts to render, crop, and combine singleslice and multislice images, scatter plots, and histograms of the analysis outputs. Feel free to treat these as inspiration for creating your own figures.
 - ```05.stats_visualisation```
   - Scripts to render images for the statistical analyses.
 

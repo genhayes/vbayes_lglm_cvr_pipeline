@@ -1,0 +1,226 @@
+#### Batch analysis script which performs both the VB and lGLM analyses
+# Author: Genevieve Hayes
+# Date: 22/09/2022
+# Version: 1.0
+######
+# TO RUN THIS SCRIPT:
+# Change the file names and parameters as required (see https://quantiphyse.readthedocs.io/en/latest/advanced/batch.html for more information)
+# Change the path_to_data_folder to the path to the folder containing the data
+# Make sure Quantihyse is activated
+# Navigate to the directory containing this script
+# Run the following command: quantiphyse --batch=quantiphyse_cvr_batch_script.yaml
+# OR
+# Run the run_quantiphyse_batch_script.sh script
+######
+
+
+
+OutputFolder: path_to_data_folderqp_outputs
+Debug: False
+
+Processing:
+  - Load:
+      data:
+        task-breathhold_meica-cons_bold_native_preprocessed.dt.nii.gz: taskbreathhold_meicacons_bold_native_preprocessed
+        task-breathhold_rec-magnitude_echo-1_sbref_brain_mask.nii.gz: taskbreathhold_recmagnitude_echo1_sbref_brain_mask
+      rois:
+        task-breathhold_rec-magnitude_echo-1_sbref_brain_mask.nii.gz: taskbreathhold_recmagnitude_echo1_sbref_brain_mask
+
+  # Additional processing steps go here
+
+  - CvrPetCo2Vb: 
+      data: taskbreathhold_meicacons_bold_native_preprocessed
+      roi: taskbreathhold_recmagnitude_echo1_sbref_brain_mask
+      tr: 1.5
+      baseline: 0
+      regressors: task-breathhold_physio_co_peakline
+      regressor_trs: 0.025
+      regressor_types: petco2
+      infer-sig0: True
+      infer-delay: True
+      allow-neg-cvr: True
+      max-iterations: 10
+      output-var: True
+      output-suffix: _vbneg
+
+  - CvrPetCo2Glm: 
+      data: taskbreathhold_meicacons_bold_native_preprocessed
+      roi: taskbreathhold_recmagnitude_echo1_sbref_brain_mask
+      tr: 1.5
+      baseline: 0
+      regressors: task-breathhold_physio_co_peakline
+      regressor_trs: 0.025
+      regressor_types: petco2
+      delay-min: -8.0
+      delay-max: 8.0
+      delay-step: 0.25
+      output-suffix: _lGLM
+
+
+  - SaveAllExcept:
+      taskbreathhold_meicacons_bold_native_preprocessed:
+      taskbreathhold_recmagnitude_echo1_sbref_brain_mask:
+      taskbreathhold_recmagnitude_echo1_sbref_brain_mask:
+
+Cases:
+  Case1:
+      Folder: path_to_data_folder/sub-001/ses-01/func_preproc
+  Case2:
+      Folder: path_to_data_folder/sub-001/ses-02/func_preproc
+  Case4:
+      Folder: path_to_data_folder/sub-001/ses-04/func_preproc
+  Case5:
+      Folder: path_to_data_folder/sub-001/ses-05/func_preproc
+  Case6:
+      Folder: path_to_data_folder/sub-001/ses-06/func_preproc
+  Case7:
+      Folder: path_to_data_folder/sub-001/ses-07/func_preproc
+  Case8:
+      Folder: path_to_data_folder/sub-001/ses-08/func_preproc
+  Case9:
+      Folder: path_to_data_folder/sub-001/ses-09/func_preproc
+  Case10:
+      Folder: path_to_data_folder/sub-001/ses-10/func_preproc
+  Case12:
+      Folder: path_to_data_folder/sub-002/ses-02/func_preproc
+  Case13:
+      Folder: path_to_data_folder/sub-002/ses-03/func_preproc
+  Case14:
+      Folder: path_to_data_folder/sub-002/ses-04/func_preproc
+  Case15:
+      Folder: path_to_data_folder/sub-002/ses-05/func_preproc
+  Case16:
+      Folder: path_to_data_folder/sub-002/ses-06/func_preproc
+  Case17:
+      Folder: path_to_data_folder/sub-002/ses-07/func_preproc
+  Case18:
+      Folder: path_to_data_folder/sub-002/ses-08/func_preproc
+  Case19:
+      Folder: path_to_data_folder/sub-002/ses-09/func_preproc
+  Case20:
+      Folder: path_to_data_folder/sub-002/ses-10/func_preproc
+  Case21:
+      Folder: path_to_data_folder/sub-003/ses-01/func_preproc
+  Case22:
+      Folder: path_to_data_folder/sub-003/ses-02/func_preproc
+  Case23:
+      Folder: path_to_data_folder/sub-003/ses-03/func_preproc
+  Case24:
+      Folder: path_to_data_folder/sub-003/ses-04/func_preproc
+  Case25:
+      Folder: path_to_data_folder/sub-003/ses-05/func_preproc
+  Case26:
+      Folder: path_to_data_folder/sub-003/ses-06/func_preproc
+  Case27:
+      Folder: path_to_data_folder/sub-003/ses-07/func_preproc
+  Case28:
+      Folder: path_to_data_folder/sub-003/ses-08/func_preproc
+  Case29:
+      Folder: path_to_data_folder/sub-003/ses-09/func_preproc
+  Case30:
+      Folder: path_to_data_folder/sub-003/ses-10/func_preproc
+  Case31:
+      Folder: path_to_data_folder/sub-004/ses-01/func_preproc
+  Case32:
+      Folder: path_to_data_folder/sub-004/ses-02/func_preproc
+  Case36:
+      Folder: path_to_data_folder/sub-004/ses-06/func_preproc
+  Case37:
+      Folder: path_to_data_folder/sub-004/ses-07/func_preproc
+  Case38:
+      Folder: path_to_data_folder/sub-004/ses-08/func_preproc
+  Case39:
+      Folder: path_to_data_folder/sub-004/ses-09/func_preproc
+  Case40:
+      Folder: path_to_data_folder/sub-004/ses-10/func_preproc
+  Case41:
+      Folder: path_to_data_folder/sub-005/ses-01/func_preproc
+  Case42:
+      Folder: path_to_data_folder/sub-005/ses-02/func_preproc
+  Case43:
+      Folder: path_to_data_folder/sub-005/ses-03/func_preproc
+  Case44:
+      Folder: path_to_data_folder/sub-005/ses-04/func_preproc
+  Case45:
+      Folder: path_to_data_folder/sub-005/ses-05/func_preproc
+  Case46:
+      Folder: path_to_data_folder/sub-005/ses-06/func_preproc
+  Case47:
+      Folder: path_to_data_folder/sub-005/ses-07/func_preproc
+  Case48:
+      Folder: path_to_data_folder/sub-005/ses-08/func_preproc
+  Case49:
+      Folder: path_to_data_folder/sub-005/ses-09/func_preproc
+  Case50:
+      Folder: path_to_data_folder/sub-005/ses-10/func_preproc
+  Case51:
+      Folder: path_to_data_folder/sub-006/ses-01/func_preproc
+  Case52:
+      Folder: path_to_data_folder/sub-006/ses-02/func_preproc
+  Case53:
+      Folder: path_to_data_folder/sub-006/ses-03/func_preproc
+  Case54:
+      Folder: path_to_data_folder/sub-006/ses-04/func_preproc
+  Case55:
+      Folder: path_to_data_folder/sub-006/ses-05/func_preproc
+  Case56:
+      Folder: path_to_data_folder/sub-006/ses-06/func_preproc
+  Case57:
+      Folder: path_to_data_folder/sub-006/ses-07/func_preproc
+  Case58:
+      Folder: path_to_data_folder/sub-006/ses-08/func_preproc
+  Case59:
+      Folder: path_to_data_folder/sub-006/ses-09/func_preproc
+  Case60:
+      Folder: path_to_data_folder/sub-006/ses-10/func_preproc
+  Case61:
+      Folder: path_to_data_folder/sub-007/ses-01/func_preproc
+  Case62:
+      Folder: path_to_data_folder/sub-007/ses-02/func_preproc
+  Case63:
+      Folder: path_to_data_folder/sub-007/ses-03/func_preproc
+  Case64:
+      Folder: path_to_data_folder/sub-007/ses-04/func_preproc
+  Case65:
+      Folder: path_to_data_folder/sub-007/ses-05/func_preproc
+  Case66:
+      Folder: path_to_data_folder/sub-007/ses-06/func_preproc
+  Case67:
+      Folder: path_to_data_folder/sub-007/ses-07/func_preproc
+  Case68:
+      Folder: path_to_data_folder/sub-007/ses-08/func_preproc
+  Case70:
+      Folder: path_to_data_folder/sub-007/ses-10/func_preproc
+  Case72:
+      Folder: path_to_data_folder/sub-008/ses-02/func_preproc
+  Case73:
+      Folder: path_to_data_folder/sub-008/ses-03/func_preproc
+  Case74:
+      Folder: path_to_data_folder/sub-008/ses-04/func_preproc
+  Case75:
+      Folder: path_to_data_folder/sub-008/ses-05/func_preproc
+  Case76:
+      Folder: path_to_data_folder/sub-008/ses-06/func_preproc
+  Case77:
+      Folder: path_to_data_folder/sub-008/ses-07/func_preproc
+  Case78:
+      Folder: path_to_data_folder/sub-008/ses-08/func_preproc
+  Case79:
+      Folder: path_to_data_folder/sub-008/ses-09/func_preproc
+  Case80:
+      Folder: path_to_data_folder/sub-008/ses-10/func_preproc
+  Case3:
+      Folder: path_to_data_folder/sub-001/ses-03/func_preproc
+  Case11:
+      Folder: path_to_data_folder/sub-002/ses-01/func_preproc
+  Case33:
+      Folder: path_to_data_folder/sub-004/ses-03/func_preproc
+  Case34:
+      Folder: path_to_data_folder/sub-004/ses-04/func_preproc
+  Case35:
+      Folder: path_to_data_folder/sub-004/ses-05/func_preproc
+  Case69:
+      Folder: path_to_data_folder/sub-007/ses-09/func_preproc
+  Case71:
+      Folder: path_to_data_folder/sub-008/ses-01/func_preproc
+      

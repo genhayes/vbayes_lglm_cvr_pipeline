@@ -5,7 +5,7 @@
 # Version: 1.0
 ######
 path_base='path_to_project_directory/'
-list_output_path='/bcbl/home/public/PJMASK_2/VB_Quantiphyse/Scriptslistqp.txt'
+list_output_path='path_to_list_output/list.txt'
 
 SBJ_LIST=('sub-001' 'sub-002' 'sub-003' 'sub-004' 'sub-005' 'sub-006' 'sub-007' 'sub-008' 'sub-009' 'sub-010')
 SES_LIST=('ses-01' 'ses-02' 'ses-03' 'ses-04' 'ses-05' 'ses-06' 'ses-07' 'ses-08' 'ses-09' 'ses-10')
